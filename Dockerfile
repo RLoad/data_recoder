@@ -18,6 +18,8 @@ RUN apt update && apt install -y \
 # Then separately install VRPN
 RUN apt update && apt install -y \
     ros-noetic-vrpn-client-ros
+RUN pip3 install pyserial
+RUN pip3 install ascii_graph
 
 # Clean apt cache
 RUN rm -rf /var/lib/apt/lists/*
@@ -38,6 +40,9 @@ RUN mkdir -p /home/ros_ws/src
 #     git clone git@github.com:RLoad/vrpn_client_ros.git && \
 #     git clone git@github.com:RLoad/net-ft-ros.git
 
+# Create a symlink: make 'python' point to 'python3'
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
 # === Set default working directory ===
 WORKDIR /home/ros_ws
 
@@ -52,6 +57,8 @@ RUN echo '#!/bin/bash' > /home/entrypoint.sh && \
     echo 'exec bash' >> /home/entrypoint.sh
 
 RUN chmod +x /home/entrypoint.sh
+
+
 
 # === 9. Auto-source ROS setup when bash starts ===
 RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc

@@ -19,6 +19,7 @@ services:
     privileged: true
     devices:
       - /dev:/dev
+      - /dev/ttyACM0:/dev/ttyACM0
     # command: bash
     tty: true     # <-- Add this line to keep bash open
     stdin_open: true # <-- Add this line
