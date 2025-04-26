@@ -1,0 +1,9 @@
+[submodule "volume_lib/net-ft-ros"]
+	path = volume_lib/net-ft-ros
+	url = git@github.com:RLoad/net-ft-ros.git
+[submodule "volume_lib/ros_myo"]
+	path = volume_lib/ros_myo
+	url = git@github.com:RLoad/ros_myo.git
+[submodule "volume_lib/vrpn_client_ros"]
+	path = volume_lib/vrpn_client_ros
+	url = git@github.com:RLoad/vrpn_client_ros.git
